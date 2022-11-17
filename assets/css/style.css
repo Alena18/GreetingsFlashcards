@@ -1,11 +1,11 @@
+/* add body style */
 body {
     background-color: rgb(251, 241, 219);
     display:flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
 }
-
+/* add cards style */
 .board {
     padding:25px;
     border-radius: 10px;
@@ -29,8 +29,46 @@ body {
 }
 
 .boxes {
-    height: 400px;
-    width: 400px;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+/* add animation */
+.box.shake{
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+    0%, 100%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-13px);
+    }
+    40%{
+        transform: translateX(13px);
+    }
+    60%{
+        transform: translateX(-8px);
+    }
+    80%{
+        transform: translateX(8px);
+    }
+}
+.box {
+    position: absolute;
+    border-radius: 7px;
+    background: #fff;
+    pointer-events: none;
+    backface-visibility: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s linear;
+
+}
+
+.box .front {
+    width: 19px;
+}
+.box .back {
+    max-width: 45px;
+    transition: rotateY(-180deg);
 }
