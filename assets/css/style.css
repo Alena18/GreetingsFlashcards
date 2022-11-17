@@ -1,7 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
 
-/*body style */
-header{
+
+.boxes {
+
+    width: 45px;
+    height: 45px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+}
+
+/* Position front and back side */
+.box{
+    position: relative;
+    width: 45px;
+    height: 45px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Horizontal flip when the mouse over the flip box area */
+.boxes:hover .box {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.front, .back {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+/*Style front side */
+.front {
+    background-color: #bbb;
+}
+/*Style back side  */
+.back {
+    transform: rotateY(180deg);
+}
+/* Body style */
+ header{
     font-family: Sonsie One, sans-serif;
     font-size: 25px;
     color: rgb(58, 58, 58);
@@ -14,13 +53,13 @@ body {
 }
 
 
-/*game area*/
-.box, .boxes, .view {
+/* Game area 
+ .box, .boxes {
    list-style-type: none;
    display: flex;
    align-items: center;
    justify-content: center;
-} 
+} */
 
 .boxes {
     width: 600px;
@@ -42,10 +81,10 @@ body {
    transform-style: preserve-3d;
    height: calc(100% / 4 - 10px);
    width: calc(100% / 4 - 10px);
-}
+}  
 
 /*animation */
-.box.shake{
+/* .box.shake{
     animation: shake 0.35s ease-in-out;
 }
 @keyframes shake {
@@ -89,4 +128,4 @@ body {
 }
 .box.flip .green{
     transform: rotateY(180deg);
-}
+}  */

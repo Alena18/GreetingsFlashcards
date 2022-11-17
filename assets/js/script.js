@@ -1,55 +1,75 @@
+ const boxes = document.querySelectorAll(".box");
+ function flipBox() {
+    this.classList.toggle("flip");
+ }
+ boxes.forEach(box => addEventListener)
+// let boxOne;
+// let boxTwo;
+// let matchedBox = 0;
+// let disBox = false;
 
+// // function flip cards
+// function flipBox(b) {
+//     //getting click box  
+//     let clickedBox = b.target;
+//     if(clickedBox !== boxOne && !disBox) {
+//         clickedBox.classList.add("flip");
+//         if(!boxOne) {
+//             // return the boxOne value to clickedBox
+//             return boxOne = clickedBox; 
+//         }
+//     boxTwo = clickedBox;  
+//     disBox = true;
+//     let boxOneImg = boxOne.querySelector("assets/images").src,
+//     boxTwoImg = boxTwo.querySelector("assets/images").src;
+//     matchBoxes(boxOneImg, boxTwoImg);
+//     }
+// }
 
-const boxes = document.querySelectorAll(".box");
+// // function match cards
+// function matchBoxes(box1, box2) {
+//     // if two cards match
+//     if(box1 === box2) {
+//         matchedBox++;
+//         if(matchedBox ==8) {
+//             shuffleBox();
+//         }
+//     boxOne.removeEventListener("click", flipBox);
+//     boxTwo.removeEventListener("click", flipBox);
+//     boxOne = boxTwo = ""; // setting both card to blank
+//     return disBox = false;
+// }
+// // if two cards not matched, add shake to both card after 300ms
+//     setTimeout (() => {
+//        boxOne.classList.add("shake");
+//        boxTwo.classList.add("shake");
+//     }, 300);
+// // removing shakes
+// setTimeout (() => {
+//     boxOne.classList.remove("shake", "flip");
+//     boxTwo.classList.add("shake", "flip");
+//     boxOne = boxTwo = "";
+//     disBox = false;
+// }, 1000);
+// }
+// // function shuffle cards
+// function shuffleBox() {
+//     let matchedBox = 0;
+//     disBox = false;
+//     boxOne = boxTwo = "";
+//     let arr = ["budgie", "cat", "dog", "fish", "guineapig", "hamster", "rabbit", "turtle", "budgiebel", "catbel", "dogbel", "fishbel", "guineapigbel", "hamsterbel", "rabbitbel", "turtlebel" ];
+//     arr.sort(() => Math.random() >0.5 ? 1:-1);
+//     boxes.forEach((card, i) => {
+//         box.classList.remove("flip");
+//         let boxTag = box.querySelector(".back img");
+//         boxTag.src = `assets/images/${arr[i]}.jpg`;
+//         box.addEventListener("click", flipBox);
+//     });
+// }
+//     shuffleBox();
 
-let boxOne;
-let boxTwo;
-let matched = 0;
-let disBox = false;
-
-// click event to all cards
-boxes.forEach(box => {
-    box.addEventListener("click", flipBox)
-})
-
-
-// flip cards
-function flipBox({target: clickedBox}) {
-    if(boxOne !== clickedBox && !disBox) {
-        clickedBox.classList.add("flip");
-        if(!boxOne) {
-            return boxOne = clickedBox;
-        }
-        boxTwo = clickedBox;
-        disBox = true;
-        let boxOneImg = boxOne.querySelector(".back img").src;
-        let boxTwoImg = boxTwo.querySelector(".back img").src;
-        matchBoxes(boxOneImg, boxTwoImg);
-    }
-}
-// match cards
-function matchBoxes(box1, box2) {
-    if(box1 === box2) {
-        matched++;
-        if(matched ==8) {
-            setTimeout (() => {
-                return shuffleBox();
-            }, 1800);
-        }
-    }
-    boxOne.removeEventListener("click", flipBox);
-    boxTwo.removeEventListener("click", flipBox);
-    boxOne = boxTwo = "";
-    return disBox = false;
-}
-setTimeout (() => {
-    boxOne.classList.add("shake");
-    boxTwo.classList.add("shake");
-}, 700);
-
-setTimeout (() => {
-    boxOne.classList.remove("shake", "flip");
-    boxTwo.classList.add("shake", "flip");
-    boxOne = boxTwo = "";
-    disBox = false;
-}, 1400);
+// // adding event for all 
+//     boxes.forEach(box => {
+//         box.classList.add("flip");
+//         box.addEventListener("click", flipBox);
+//     });
