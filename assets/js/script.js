@@ -13,9 +13,9 @@ function flipBox({target: clickedBox}) {
             return boxOne = clickedBox;
         }
         boxTwo = clickedBox;
-        dis = true;
-        let boxOneImg = boxOne.querySelector(".green img").src;
-        cardTwoImg = cardTwo.querySelector(".green img").src;
+        disBox = true;
+        let boxOneImg = boxOne.querySelector(".back img").src;
+        let boxTwoImg = boxTwo.querySelector(".back img").src;
         matchBoxes(boxOneImg, boxTwoImg);
     }
 }

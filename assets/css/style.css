@@ -1,11 +1,13 @@
-/* add body style */
+/*body style */
 body {
     background-color: rgb(251, 241, 219);
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
 }
-/* add cards style */
+
+/*cards style */
 .board {
     padding:25px;
     border-radius: 10px;
@@ -13,11 +15,21 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.box, .boxes {
+.box, .boxes, .view {
    list-style-type: none;
    display: flex;
    align-items: center;
    justify-content: center;
+} 
+
+.boxes {
+    height: 400px;
+    width: 400px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.boxes .box{
    cursor: pointer;
    list-style: none;
    user-select: none;
@@ -28,12 +40,7 @@ body {
    width: calc(100% / 4 - 10px);
 }
 
-.boxes {
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-/* add animation */
+/*animation */
 .box.shake{
     animation: shake 0.35s ease-in-out;
 }
@@ -54,7 +61,7 @@ body {
         transform: translateX(8px);
     }
 }
-.box {
+.box .view{
     position: absolute;
     border-radius: 7px;
     background: #fff;
@@ -65,10 +72,18 @@ body {
 
 }
 
-.box .front {
+.box .green img{
     width: 19px;
 }
-.box .back {
+.box .back img{
     max-width: 45px;
-    transition: rotateY(-180deg);
+}
+.box .back{
+    transform: rotateY(-180deg);
+}
+.box.flip .back{
+    transform: rotateY(0);
+}
+.box.flip .green{
+    transform: rotateY(180deg);
 }
