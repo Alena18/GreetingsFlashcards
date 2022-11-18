@@ -1,16 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
 
 
-.boxes {
-
-    width: 45px;
-    height: 45px;
+.cards {
+    list-style-type: none;
+    width: 600px;
+    height: 600px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
-}
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
+}
+.front img, .back img{
+    width:150px;
+    height:150px;
+}
 /* Position front and back side */
-.box{
+.card{
     position: relative;
     width: 45px;
     height: 45px;
@@ -19,7 +27,7 @@
 }
 
 /* Horizontal flip when the mouse over the flip box area */
-.boxes:hover .box {
+.card.flip {
     transform: rotateY(180deg);
 }
 
@@ -61,7 +69,7 @@ body {
    justify-content: center;
 } */
 
-.boxes {
+/* .boxes {
     width: 600px;
     height: 600px;
     position: relative;
@@ -81,7 +89,7 @@ body {
    transform-style: preserve-3d;
    height: calc(100% / 4 - 10px);
    width: calc(100% / 4 - 10px);
-}  
+}    */
 
 /*animation */
 /* .box.shake{

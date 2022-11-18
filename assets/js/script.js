@@ -1,8 +1,20 @@
- const boxes = document.querySelectorAll(".box");
- function flipBox() {
+ const cards = document.querySelectorAll(".card");
+ let card1, card2;
+ let matchedCards = 0;
+ let disCards;
+
+ function flipCard() {
     this.classList.toggle("flip");
+    
+    if (card1 == card2 ){
+      matchedCards++;
+    }
  }
- boxes.forEach(box => addEventListener)
+ cards.forEach(card => {
+   card.addEventListener("click", flipCard);
+ });
+
+
 // let boxOne;
 // let boxTwo;
 // let matchedBox = 0;
