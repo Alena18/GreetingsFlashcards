@@ -1,8 +1,10 @@
  const cards = document.querySelectorAll(".card");
- let card1, card2;
- let matchedCards = 0;
- let disCards = false;
+ let card1 = this.dataset.animal;
+ let card2 = this.dataset.animal;
+ let matchedCards = [];
+ let disCards = [];
 
+ 
  function flipCard() {
     this.classList.toggle("flip");
  }
@@ -11,10 +13,20 @@
       card.addEventListener("click", flipCard);
  });
 
-    
+ function match() {
+  if(disCards.length != 2 ) return;
+  const [card1, card2] = 
+ }
+
+
+
+
+
+
+
 //  if (card1 == card2 ){
-//   matchedCards++;
-// }
+//       console.log("correct");
+//     }
 // let boxOne;
 // let boxTwo;
 // let matchedBox = 0;
