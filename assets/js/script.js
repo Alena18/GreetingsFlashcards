@@ -1,61 +1,91 @@
 var cards = document.querySelectorAll('.card');
-let cardOne, cardTwo;
 
-cards.forEach(card => {
-  card.addEventListener('click', flipped)
+let hasFlipped = false;
+let cardOne, cardTwo;
+let lockedCard = false ; // can't flip another card until previous cards action completed
+
+const flippedCard = e => {
+        if (lockedCard) return; // return if you click the same card twice
+
+         const target = e.target.parentElement;
+
+         if (target === cardOne) return; // if you click the same card twice it stays open, as 
+         // it reacts as the same class while this card should flip back 
+
+         target.classList.add("flipped");
+        
+         // Get cards by one tag
+         console.log(target.dataset.animal);
+         if (!hasFlipped) {
+          // First click
+
+          hasFlipped = true;
+          cardOne = target;
+         } else {
+          // Second click
+
+          hasFlipped = false;
+          cardTwo = target;
+          checkMatch();
+        }
+              
+        
+};
+
+const checkMatch = () => {
+            const isEqual = cardOne.dataset.animal === cardTwo.dataset.animal;
+            isEqual ? disCards() : unflip();
+
+  // if (cardOne.dataset.animal === cardTwo.dataset.animal) {
+  //   //Cards are equal
+  //   disCards();
+  // }else {
+  //   lockedCard = true;  
+  //   //Cards are not equal
+  //   setTimeout(() =>{
+  //     cardOne.classList.remove("flipped");
+  //     cardTwo.classList.remove("flipped");
+  //     lockedCard = false;
+  //   }, 1000)
+       if (hasFlipped === 8) {
+        unflip();
+       }
+ 
+};
+
+// disable cards function
+const disCards = () => {
+  cardOne.removeEventListener("click", flippedCard);
+  cardTwo.removeEventListener("click", flippedCard);
+};
+
+// unflip cards function
+const unflip = () => {
+        lockedCard = true; 
+
+        setTimeout(() =>{
+              cardOne.classList.remove("flipped");
+              cardTwo.classList.remove("flipped");
+              lockedCard = false;
+            }, 1000)
+};
+
+const resetGame = () => {
+  // [hasFlipped, lockedCard] = [false, false];
+  // [cardOne, cardTwo] = [null, null];
+
+  hasFlipped = lockedCard = false;
+  cardOne = cardTwo = null;
+  
+}
+
+// Add Event Listener to every card
+  cards.forEach(card => {
+  card.addEventListener('click', flippedCard);
+  //shuffle cards for next game
+  const randomShuffle = Math.floor(Math.random() * cards.length);
+  card.style.order = randomShuffle;
 });
 
-function flipped() {
-  this.classList.toggle('flipped');
-}
-// function flipped(c) {
-//     let clickedCard = c.target;
-//     if(clickedCard !== cardOne) {
-//       //return the cardOne value to clickedCard
-//       this.classList.add("flipped");
-//       if(!cardOne){
-//       return cardOne = clickedCard;
-//     }
-//     cardTwo = clickedCard;
-//     let cardOneImg = this.querySelector("img"),
-//     cardTwoImg = this.querySelector("img");
-//     matchCards(cardOneImg, cardTwoImg);
-//   }
-// }
 
-// function matchCards(img1, img2) {
-//   if(img1 === img2) {
-//     return console.log("matched");    
-//   }
-//   console.log("not matched");
-// }
-
-
-// const cards = document.querySelectorAll(".card");
-
-
-// cards.forEach((card) => {
-//          card.addEventListener("click",
-//         function() {
-//           card.classList.toggle("flipped");
-//         });
-//    });
-
-//  let cards = document.querySelectorAll(".card");
-//  let card1 = card2 = this.dataset.animal;
-//  let matchedCards ="";
-//  let disCards = 0;
-
- 
-//  function flipCard() {
-//     this.classList.toggle("flip");
-    
-//     if (card1 == card2 ){
-//             console.log("correct");
-//           }
-//  }
-
-//  cards.forEach(card => {
-//       card.addEventListener("click", flipCard);
-//  });
 
