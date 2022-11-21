@@ -4,38 +4,21 @@ header{
     font-family: Sonsie One, sans-serif;
     font-size: 20px;
     color: rgb(58, 58, 58);
-    margin-left: 20%;
+    margin-left: 18%;
 }
 
 body {
     background-color: rgb(213, 213, 213);
     margin-left: 25%;
 }
-
-.wrap {
-    width: 700px;
-    height: 700px;
-    border: 3px solid #f1f1f1;
-    border-radius: 4%;
-    position: absolute;
-    margin-left: 30px;
-    margin-top: -5px;
-}
-.front img, .back img{
-    width:150px;
-    height:150px;
-    position: relative;
-    margin-left: -57%; /*front and back card same position*/    
-}
-
 .board {
     width: 700px;
-    height: 700px;
-    /* border: 3px solid #f1f1f1;
-    border-radius: 4%; */
+    /* border: 3px solid #f1f1f1; */
+    border-radius: 4%;
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    padding: 1%;
     
     /* margin: 45px;
     padding: 10px; */
@@ -51,56 +34,49 @@ body {
   
   .card {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
+    background-color: black;
     cursor: pointer;
-    margin: 5px 0 0 100px;
-    padding: 5px;
     transform-style: preserve-3d;
     transform-origin: center;
     transition: transform 1s;
+    border: 3px solid #000000;
+    border-radius: 4%;
+    margin: 1%;
   }
   
   .card.flipped {
-    transform:translateX(35%) rotateY(180deg);
+    transform:translateX(-5%) rotateY(180deg);
+    background-color: #ffffff;
     /* transform: rotateY(180deg);
     transform-style: preserve-3d;
     transform-origin: center right;
     transition: transform 1s; */
   }
-  
-  .view {
+    .view {
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 140px;
+    height: 140px;
     backface-visibility: hidden;
   }
-    
+
   .back {
     transform: rotateY(180deg);
+    
+  }
+.restart {
+  background-color: rgb(233, 136, 40);
+  font-family: Sonsie One, sans-serif;
+  margin-left: 23%;
+  width: 200px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 4%;
+  padding: 1%;
+  border-color: #000000;
+}
 
-  }
-
-  .card.shake{
-    animation: shake 0.35s ease-in-out;
-  }
-  @keyframes shake {
-    0%, 100%{
-      transform: translateX(0);
-    }
-    20%{
-      transform: translateX(-13px);
-    }
-    40%{
-      transform: translateX(13px);
-    }
-    60%{
-      transform: translateX(-8px);
-    }
-    80%{
-      transform: translateX(8px);
-    }
-  }
 /* .cards {
     
     width: 600px;

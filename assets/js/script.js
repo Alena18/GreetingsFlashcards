@@ -4,8 +4,9 @@ let hasFlipped = false;
 let cardOne, cardTwo;
 let lockedCard = false ; // can't flip another card until previous cards action completed
 
+// Find the same card and leave it flipped
 const flippedCard = e => {
-        if (lockedCard) return; // return if you click the same card twice
+        if (lockedCard) return; 
 
          const target = e.target.parentElement;
 
@@ -47,10 +48,7 @@ const checkMatch = () => {
   //     cardTwo.classList.remove("flipped");
   //     lockedCard = false;
   //   }, 1000)
-       if (hasFlipped === 8) {
-        unflip();
-       }
- 
+      
 };
 
 // disable cards function
@@ -66,11 +64,11 @@ const unflip = () => {
         setTimeout(() =>{
               cardOne.classList.remove("flipped");
               cardTwo.classList.remove("flipped");
-              lockedCard = false;
+              resetBoard();
             }, 1000)
 };
 
-const resetGame = () => {
+const resetBoard = () => {
   // [hasFlipped, lockedCard] = [false, false];
   // [cardOne, cardTwo] = [null, null];
 
@@ -82,10 +80,20 @@ const resetGame = () => {
 // Add Event Listener to every card
   cards.forEach(card => {
   card.addEventListener('click', flippedCard);
-  //shuffle cards for next game
+//shuffle cards for next game
   const randomShuffle = Math.floor(Math.random() * cards.length);
   card.style.order = randomShuffle;
 });
 
-
-
+// const gameover = () => {
+//   gameOver = true;
+//   window.location.reload();
+//   randomShuffle();
+//   unflip();
+// };
+// Restart game
+document.querySelector('.restart').addEventListener('click', function(){
+  window.location.reload();  
+  return false;
+  
+});
