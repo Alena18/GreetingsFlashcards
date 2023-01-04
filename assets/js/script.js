@@ -70,6 +70,22 @@ const resetBoard = () => {
   const randomShuffle = Math.floor(Math.random() * cards.length);
   card.style.order = randomShuffle;
 });
+// Time
+// timeTag = document.querySelector(".timer"),
+flipsTag = document.querySelector(".flips"),
+const  startTime = 200;
+let time = startTime * 60;
+const timeTag = document.getElementsByClassName("timer");
+
+setInterval(countTimer, 200)
+function countTimer() {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  timeTag.innerHTML = "${minutes}: ${seconds}";
+  time--;
+}
+
 
 // Restart game
 document.querySelector('.restart').addEventListener('click', function(){

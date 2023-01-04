@@ -65,7 +65,7 @@ body {
     transform: rotateY(180deg);
     
   }
-.restart {
+.restart, .timer, .flips {
   background-color: rgb(233, 136, 40);
   font-family: Sonsie One, sans-serif;
   margin-left: 23%;
