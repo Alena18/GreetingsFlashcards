@@ -72,19 +72,33 @@ const resetBoard = () => {
 });
 // Time
 // timeTag = document.querySelector(".timer"),
-flipsTag = document.querySelector(".flips"),
-const  startTime = 200;
+// flipsTag = document.querySelector(".flips"),
+const  startTime = 0.1;
 let time = startTime * 60;
-const timeTag = document.getElementsByClassName("timer");
+const timeTag = document.getElementById('timer');
 
-setInterval(countTimer, 200)
+function startTimer = () => {
+    if(hasFlipped){
+      hasFlipped = true;
+      setInterval(countTimer, 1000)}
+  };
+    
 function countTimer() {
-  const minutes = Math.floor(time / 60);
+  
+  let minutes = Math.floor(time / 60);
   let seconds = time % 60;
+  
+  minutes = minutes < 1 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+  
 
-  timeTag.innerHTML = "${minutes}: ${seconds}";
+  timeTag.innerHTML = `${minutes}: ${seconds}`;
+  if (time < 0){
+         ;
+                             };
   time--;
-}
+};
 
 
 // Restart game
