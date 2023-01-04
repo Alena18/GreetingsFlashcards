@@ -37,19 +37,7 @@ const checkMatch = () => {
             const isEqual = cardOne.dataset.animal === cardTwo.dataset.animal;
             isEqual ? disCards() : unflip();
 
-  // if (cardOne.dataset.animal === cardTwo.dataset.animal) {
-  //   //Cards are equal
-  //   disCards();
-  // }else {
-  //   lockedCard = true;  
-  //   //Cards are not equal
-  //   setTimeout(() =>{
-  //     cardOne.classList.remove("flipped");
-  //     cardTwo.classList.remove("flipped");
-  //     lockedCard = false;
-  //   }, 1000)
-      
-};
+  };
 
 // disable cards function
 const disCards = () => {
@@ -69,9 +57,7 @@ const unflip = () => {
 };
 
 const resetBoard = () => {
-  // [hasFlipped, lockedCard] = [false, false];
-  // [cardOne, cardTwo] = [null, null];
-
+  
   hasFlipped = lockedCard = false;
   cardOne = cardTwo = null;
   
@@ -85,12 +71,6 @@ const resetBoard = () => {
   card.style.order = randomShuffle;
 });
 
-// const gameover = () => {
-//   gameOver = true;
-//   window.location.reload();
-//   randomShuffle();
-//   unflip();
-// };
 // Restart game
 document.querySelector('.restart').addEventListener('click', function(){
   window.location.reload();  
