@@ -65,7 +65,7 @@ body {
     transform: rotateY(180deg);
     
   }
-.restart, #timer, .timer, .flips {
+.restart, #timer, .timer, .flips, .btn {
   background-color: rgb(233, 136, 40);
   font-family: Sonsie One, sans-serif;
   margin-left: 23%;
@@ -77,6 +77,9 @@ body {
   border-color: #000000;
 }
 
+.disable {
+    pointer-events: none;
+}
 /* .cards {
     
     width: 600px;
